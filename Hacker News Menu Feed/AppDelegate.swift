@@ -30,7 +30,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @objc public func test() {
         getStories { stories in
             
-            print(stories)
             for (idx, story) in stories.enumerated() {
                 let dispatchAfter = DispatchTimeInterval.seconds(idx * 120)
 
