@@ -12,7 +12,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         
-        Timer.scheduledTimer(timeInterval: 2520, target: self, selector: #selector(self.test), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 2520, target: self, selector: #selector(self.load), userInfo: nil, repeats: true)
 
         let one = NSMenuItem(title: "Open in Browser", action: #selector(self.openInBrowser), keyEquivalent: "o")
         
@@ -24,10 +24,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         self.statusItem.menu = self.menu
         
-        test()
+        load()
     }
     
-    @objc public func test() {
+    @objc public func load() {
         getStories { stories in
             
             for (idx, story) in stories.enumerated() {
