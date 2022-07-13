@@ -6,6 +6,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     public var statusItem: NSStatusItem!
     public var menu = NSMenu()
     public var currentUrl = "";
+    public var currentId = 0;
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
 
@@ -28,12 +29,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @objc public func test() {
         getStories { stories in
+            
+            print(stories)
             for (idx, story) in stories.enumerated() {
                 let dispatchAfter = DispatchTimeInterval.seconds(idx * 120)
 
                 DispatchQueue.main.asyncAfter(deadline: .now() + dispatchAfter) {
                     self.statusItem.button?.title = story.title
                     self.currentUrl = story.url ?? ""
+                    self.currentId = story.id
                     
                 }
             }
@@ -41,12 +45,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @objc func openInBrowser() {
-        let url = URL(string: currentUrl)!
-        NSWorkspace.shared.open([url],
-                                withAppBundleIdentifier:"com.apple.Safari",
-                                options: [],
-                                additionalEventParamDescriptor: nil,
-                                launchIdentifiers: nil)
+        let url = URL(string: "https://news.ycombinator.com/item?id=\(currentId)")!
+        NSWorkspace.shared.open(url)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -58,6 +58,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     struct Story: Decodable {
+        let id: Int
         let title: String
         let url: String?
     }
