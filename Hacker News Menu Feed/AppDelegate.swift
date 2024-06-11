@@ -11,8 +11,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
 
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
+        statusItem.button?.title = "Loading Hacker News Feed!"
         
-        Timer.scheduledTimer(timeInterval: 2520, target: self, selector: #selector(self.load), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(self.load), userInfo: nil, repeats: true)
 
         let one = NSMenuItem(title: "Open in Browser", action: #selector(self.openInBrowser), keyEquivalent: "o")
         
@@ -28,13 +29,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @objc public func load() {
+        statusItem.button?.title = "Loading Hacker News Feed..."
+        
         getStories { stories in
             
             for (idx, story) in stories.enumerated() {
                 let dispatchAfter = DispatchTimeInterval.seconds(idx * 120)
 
                 DispatchQueue.main.asyncAfter(deadline: .now() + dispatchAfter) {
-                    self.statusItem.button?.title = story.title
+                    let storyTitle = story.title.count <= 35 ? story.title : story.title.prefix(35) + "..."
+                    
+                    self.statusItem.button?.title = storyTitle
                     self.currentUrl = story.url ?? ""
                     self.currentId = story.id
                     
