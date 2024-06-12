@@ -1,12 +1,18 @@
 # Hacker News Menu Feed
 
-[![version](https://img.shields.io/badge/version-0.0.1-green.svg)](https://github.com/agencyenterprise/Hacker-News-Menu-Feed/releases/latest/download/Hacker-News.Menu-Feed-0.0.1.dmg)
+[![version](https://img.shields.io/badge/version-0.2.0-green.svg)](https://github.com/agencyenterprise/Hacker-News-Menu-Feed/releases/latest/download/Hacker.News.Menu.Feed.v0.2.0.zip)
+
+https://github.com/agencyenterprise/Hacker-News-Menu-Feed/releases/download/v0.2.0/Hacker.News.Menu.Feed.v0.2.0.zip
 
 A simple MacOS App that adds Hacker News top stories in status bar.
 
-On click you can
- - Open the URL
- - Quit
- 
+On click you can:
+- Open the story URL
+- Open the story external link
+- Refresh the feed data (data is refreshed automatically every 60 seconds)
+- Open the github repository link
+- Open the Author's website
+- Quit
 
-![Screen Shot 2022-07-12 at 3 10 43 PM](https://user-images.githubusercontent.com/7142161/178563965-75a143f3-6d04-4893-bb3f-d81f41e6e92e.png)
+https://github.com/agencyenterprise/Hacker-News-Menu-Feed/assets/1634137/6bec4fc9-1488-49d1-8ed4-1280dc415c9f
+
