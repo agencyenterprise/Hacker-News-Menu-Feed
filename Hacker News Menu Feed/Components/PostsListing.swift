@@ -18,11 +18,18 @@ struct PostsListing: View {
                     CustomLink(title: post.title!, link: "https://news.ycombinator.com/item?id=\(post.id)")
                 }
                 
+                if post.url != nil {
+                    CustomLink(title: "post external link", link: post.url!)
+                        .padding(.leading, 22)
+                        .padding(.bottom, 5)
+                        .font(.system(size: 11.5))
+                }
+                
                 HStack {
                     
                     Text("\(post.score) points by")
                         .font(.system(size: 12))
-                        .padding(.leading, 21)
+                        .padding(.leading, 17.5)
                     
                     CustomLink(title: post.by, link: "https://news.ycombinator.com/user?id=\(post.by)")
                     

@@ -89,7 +89,6 @@ struct ContentView: App {
     }
     
     func fetchTopPostsIDs() async throws -> [Int] {
-        print("Fetching data...")
         let url = URL(string: "https://hacker-news.firebaseio.com/v0/topstories.json")!
         let (data, _) = try await URLSession.shared.data(from: url)
         let response = try JSONDecoder().decode([Int].self, from: data)
