@@ -25,11 +25,11 @@ struct PostsListing: View {
                         .font(.system(size: 11.5))
                 }
                 
-                HStack {
+                HStack(spacing: 3) {
                     
                     Text("\(post.score) points by")
                         .font(.system(size: 12))
-                        .padding(.leading, 17.5)
+                        .padding(.leading, 22)
                     
                     CustomLink(title: post.by, link: "https://news.ycombinator.com/user?id=\(post.by)")
                     

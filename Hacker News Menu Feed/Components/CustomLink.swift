@@ -9,7 +9,7 @@ struct CustomLink: View {
     
     var body: some View {
         Link(destination: URL(string: link)!, label: {
-            Text(title).underline().padding(.horizontal, -5)
+            Text(title).underline()
         })
         .underline()
         .foregroundColor(.white)

@@ -11,7 +11,7 @@ struct Actions: View {
                 Image(systemName: "info.circle.fill")
                     .frame(width: 5)
                 
-                Text("Feed is refreshed at each 60 seconds")
+                Text("The data is refreshed automatically every 60 seconds")
                     .font(.system(size: 12.5))
                     .foregroundColor(.white)
             }
