@@ -5,6 +5,8 @@ struct Actions: View {
     var onRefresh: () -> Void
     var onQuit: () -> Void
     
+    @Binding var showOnlyIcon: Bool
+    
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
@@ -38,7 +40,9 @@ struct Actions: View {
                 })
             }
             
-            
+            Toggle("Show only icon on menu bar", isOn: $showOnlyIcon)
+                .toggleStyle(SwitchToggleStyle())
+                .padding(.leading, 16)
         }
         .padding(.bottom, 5)
     }
