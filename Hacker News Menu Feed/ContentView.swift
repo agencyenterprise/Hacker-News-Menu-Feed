@@ -4,8 +4,8 @@ import SwiftUI
 struct ContentView: App {
     private static let NUMBER_OF_POSTS = 10
     
-    @State private var isOpen = true
     @State private var isFetching = false
+    @State private var onlyIcon = LocalDataSource.getShowOnlyIcon()
     @State private var truncatedTitle: String = "Loading Hacker news feed..."
     @State private var posts: [StoryFetchResponse] = []
     @State private var refreshRate = 60.0
@@ -13,30 +13,42 @@ struct ContentView: App {
     var timer = Timer()
     
     var body: some Scene {
-        MenuBarExtra(isInserted: $isOpen) {
-            AppMenu(posts: $posts, isFetching: $isFetching, onRefreshTapped: refreshData)
+        MenuBarExtra {
+            AppMenu(posts: $posts, isFetching: $isFetching, showOnlyIcon: $onlyIcon, onRefreshTapped: refreshData)
                 .frame(width: 495.0)
         } label: {
-            Text(truncatedTitle)
-                .onAppear {
-                    refreshData()
-                    
-                    Timer.scheduledTimer(withTimeInterval: refreshRate, repeats: true, block: { _ in
-                        refreshData()
-                    })
-                    
-                }
+            if onlyIcon {
+                Image(.icon).frame(width: 5, height: 5)
+                    .onAppear() {
+                        startApp()
+                    }
+            } else {
+                Text(truncatedTitle)
+                    .onAppear() {
+                        startApp()
+                    }
+            }
         }
         .menuBarExtraStyle(.window)
         .onChange(of: isFetching, perform: { _ in
-            if isFetching {
-                truncatedTitle = "Loading Hacker news feed..."
-            } else {
+            if !isFetching && posts.count > 0 {
                 truncatedTitle = posts[0].title!
             }
             
             adjustTitleForMenuBar()
         })
+        .onChange(of: onlyIcon, perform: { _ in
+            LocalDataSource.saveShowOnlyIcon(value: onlyIcon)
+        })
+    }
+    
+    func startApp() {
+        if posts.count == 0 {
+            refreshData()
+            Timer.scheduledTimer(withTimeInterval: refreshRate, repeats: true, block: { _ in
+                refreshData()
+            })
+        }
     }
     
     func adjustTitleForMenuBar() {
@@ -97,7 +109,6 @@ struct ContentView: App {
     }
     
     func fetchPostById(postId: Int) async throws -> StoryFetchResponse {
-        print("Fetching story \(postId)")
         let url = URL(string: "https://hacker-news.firebaseio.com/v0/item/\(postId).json")!
         let (data, _) = try await URLSession.shared.data(from: url)
         

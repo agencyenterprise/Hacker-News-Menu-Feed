@@ -11,6 +11,7 @@
 		1CBD3A882C188DC6003C08E7 /* AppMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBD3A842C188DC6003C08E7 /* AppMenu.swift */; };
 		1CBD3A892C188DC6003C08E7 /* StoryFetchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBD3A852C188DC6003C08E7 /* StoryFetchResponse.swift */; };
 		1CBD3A8B2C1897ED003C08E7 /* PostsListing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBD3A8A2C1897ED003C08E7 /* PostsListing.swift */; };
+		1CD281B02C21CBEF002A4380 /* LocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD281AF2C21CBEB002A4380 /* LocalDataSource.swift */; };
 		1CE7CD1D2C18A5BC00775BE7 /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE7CD1C2C18A5BC00775BE7 /* Actions.swift */; };
 		1CE7CD212C18AB8000775BE7 /* Footer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE7CD202C18AB8000775BE7 /* Footer.swift */; };
 		1CE7CD232C18ADF300775BE7 /* CustomLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE7CD222C18ADF300775BE7 /* CustomLink.swift */; };
@@ -22,6 +23,7 @@
 		1CBD3A842C188DC6003C08E7 /* AppMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppMenu.swift; sourceTree = "<group>"; };
 		1CBD3A852C188DC6003C08E7 /* StoryFetchResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryFetchResponse.swift; sourceTree = "<group>"; };
 		1CBD3A8A2C1897ED003C08E7 /* PostsListing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsListing.swift; sourceTree = "<group>"; };
+		1CD281AF2C21CBEB002A4380 /* LocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataSource.swift; sourceTree = "<group>"; };
 		1CE7CD1C2C18A5BC00775BE7 /* Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actions.swift; sourceTree = "<group>"; };
 		1CE7CD202C18AB8000775BE7 /* Footer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Footer.swift; sourceTree = "<group>"; };
 		1CE7CD222C18ADF300775BE7 /* CustomLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLink.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 		F8A83F2E287F82F1000FD249 /* Hacker News Menu Feed */ = {
 			isa = PBXGroup;
 			children = (
+				1CD281AF2C21CBEB002A4380 /* LocalDataSource.swift */,
 				1CBD3A832C188DC6003C08E7 /* ContentView.swift */,
 				1CE7CD252C18AFA900775BE7 /* DTO */,
 				1CE7CD1B2C18A5AE00775BE7 /* Components */,
@@ -166,6 +169,7 @@
 				1CE7CD232C18ADF300775BE7 /* CustomLink.swift in Sources */,
 				1CE7CD212C18AB8000775BE7 /* Footer.swift in Sources */,
 				1CBD3A882C188DC6003C08E7 /* AppMenu.swift in Sources */,
+				1CD281B02C21CBEF002A4380 /* LocalDataSource.swift in Sources */,
 				1CBD3A872C188DC6003C08E7 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -309,7 +313,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 0.2.1;
+				MARKETING_VERSION = 0.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "aestudio.Hacker-News-Menu-Feed";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -340,7 +344,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 0.2.1;
+				MARKETING_VERSION = 0.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "aestudio.Hacker-News-Menu-Feed";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

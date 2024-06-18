@@ -11,11 +11,23 @@ struct Footer: View {
         HStack {
             Text("Made with 🧡 by")
             CustomLink(title: "AE Studio", link: aeWebsiteLink)
-            Text("•").padding(.horizontal, 5)
+            Text("•")
             CustomLink(title: "github repository", link: githubLink)
+            Text("•")
+            Text("v\(Bundle.main.appVersion)")
         }
         .padding(.leading, 10)
         .padding(.vertical, 2)
         .padding(.bottom, 3)
+    }
+}
+
+extension Bundle {
+    var appVersion: String {
+        return infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown"
+    }
+
+    var buildNumber: String {
+        return infoDictionary?["CFBundleVersion"] as? String ?? "Unknown"
     }
 }

@@ -7,6 +7,7 @@ struct AppMenu: View {
     
     @Binding var posts: [StoryFetchResponse]
     @Binding var isFetching: Bool
+    @Binding var showOnlyIcon: Bool
     
     var onRefreshTapped: () -> Void
     
@@ -16,13 +17,11 @@ struct AppMenu: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            
             if isFetching {
-                Text("Refreshing feed data...")
-                    .padding()
+                Text("Refreshing feed data...").padding()
             } else {
                 PostsListing(posts: posts)
-                Actions(onRefresh: onRefreshTapped, onQuit: quitAction)
+                Actions(onRefresh: onRefreshTapped, onQuit: quitAction, showOnlyIcon: $showOnlyIcon)
                 Divider()
                 Footer()
             }
