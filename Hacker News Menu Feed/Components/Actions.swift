@@ -40,7 +40,7 @@ struct Actions: View {
                 })
             }
             
-            Toggle("Show only icon on menu bar", isOn: $showOnlyIcon)
+            Toggle("Show only an icon on the menu bar", isOn: $showOnlyIcon)
                 .toggleStyle(SwitchToggleStyle())
                 .padding(.leading, 16)
         }
