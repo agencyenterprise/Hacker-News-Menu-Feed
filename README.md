@@ -1,6 +1,6 @@
 # Hacker News Menu Feed
 
-[![version](https://img.shields.io/badge/version-0.2.1-green.svg)](https://github.com/agencyenterprise/Hacker-News-Menu-Feed/releases/latest/download/Hacker.News.Menu.Feed.v0.2.1.zip)
+[![version](https://img.shields.io/badge/version-0.3.0-green.svg)](https://github.com/agencyenterprise/Hacker-News-Menu-Feed/releases/latest/download/Hacker.News.Menu.Feed.v0.3.0.zip)
 
 A simple MacOS App that adds Hacker News top stories in status bar.
 
